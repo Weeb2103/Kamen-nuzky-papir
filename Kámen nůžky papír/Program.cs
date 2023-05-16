@@ -80,6 +80,7 @@ while (end == false)
                 break;
         }
     }
+    zpet:
     if (hra.SkoreHrac > hra.SkoreNepritel)
     {
         hra.FinalVyhra();
@@ -87,9 +88,7 @@ while (end == false)
     else
     {
         hra.FinalProhra();
-    }
-    zpet:
-    Console.ForegroundColor = ConsoleColor.White;
+    }    
     Console.WriteLine("Chceš znovu? / Again?");
     Console.WriteLine("A/N");
     ConsoleKeyInfo vyber = Console.ReadKey(true);
