@@ -2,30 +2,18 @@
 using Kámen_nůžky_papír;
 
 Hra hra = new Hra();
-Console.WriteLine("Vítej ve hře kámen - nůžky - papír / Welcome at rock - paper - scissors");
-Console.WriteLine("Hra začíná za... / Game starts in...");
-Console.WriteLine("3");
-Thread.Sleep(1000);
-Console.WriteLine("2");
-Thread.Sleep(1000);
-Console.WriteLine("1");
-Thread.Sleep(1000);
-Console.Clear();
+hra.Start();
 while (hra.SkoreHrac < 5 && hra.SkoreNepritel < 5)
 {
     Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine("Hráč / Player: " + hra.SkoreHrac);
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine("Nepřítel / Opponent: " + hra.SkoreNepritel);
-    Console.ForegroundColor = ConsoleColor.White;
-    Console.WriteLine("-------------");
-    Console.WriteLine("1 - kámen / rock");
-    Console.WriteLine("2 - nůžky / scissors");
-    Console.WriteLine("3 - papír / paper");
-    Console.WriteLine("-------------");
+    hra.Menu();
     ConsoleKeyInfo vyberHrace = Console.ReadKey(true);
     Random generatorVoleb = new Random();
     int vyberNepritele = generatorVoleb.Next(3);
+
     switch (vyberHrace.Key)
     {
         case ConsoleKey.D1:
@@ -86,22 +74,15 @@ while (hra.SkoreHrac < 5 && hra.SkoreNepritel < 5)
                 break;
             }
         default:
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Špatně zadaná hodnota - zadej vstup znovu / Incorrectly entered value - enter the input again ");
-            Thread.Sleep(2000);
-            Console.Clear();
+            hra.Chyba();
             break;
     }
 }
 if (hra.SkoreHrac > hra.SkoreNepritel)
 {
-    Console.ForegroundColor = ConsoleColor.Green;
-    Console.WriteLine("Hráč vyhrál / Player won");
-    Console.ForegroundColor = ConsoleColor.White;
+    hra.FinalVyhra();
 }
 else
 {
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine("Nepřítel vyhrál / Opponent won");
-    Console.ForegroundColor = ConsoleColor.White;
+    hra.FinalProhra();
 }
