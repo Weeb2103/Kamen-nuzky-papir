@@ -1,4 +1,4 @@
-Kámen nůžky papír	
+# Kámen nůžky papír	
 _________________________
 Pouze napiš číslo co chceš použít a nepřítel zvolí náhodně. Vyhraješ či prohraješ to zvolí náhoda.
 
