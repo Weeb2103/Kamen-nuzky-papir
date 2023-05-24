@@ -1,16 +1,12 @@
 ﻿using System.Threading;
 using Kámen_nůžky_papír;
 bool end = false;
-while (end == false)
+while (end == false)//pouzito pro opakovani hry
 {
     Hra hra = new Hra();
     hra.Start();
     while (hra.SkoreHrac < 5 && hra.SkoreNepritel < 5)
     {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("Hráč / Player: " + hra.SkoreHrac);
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("Nepřítel / Opponent: " + hra.SkoreNepritel);
         hra.Menu();
         ConsoleKeyInfo vyberHrace = Console.ReadKey(true);
         Random generatorVoleb = new Random();
@@ -18,6 +14,7 @@ while (end == false)
 
         switch (vyberHrace.Key)
         {
+            //kdyz hrac vybere kámen
             case ConsoleKey.D1:
             case ConsoleKey.NumPad1:
                 if (vyberNepritele == 1)
@@ -37,6 +34,7 @@ while (end == false)
                     hra.ZvyseniSkore(false);
                     break;
                 }
+            //kdyz hrac vybere nuzky
             case ConsoleKey.D2:
             case ConsoleKey.NumPad2:
                 if (vyberNepritele == 1)
@@ -56,6 +54,7 @@ while (end == false)
                     hra.ZvyseniSkore(true);
                     break;
                 }
+            //kdyz hrac vybere papir
             case ConsoleKey.D3:
             case ConsoleKey.NumPad3:
                 if (vyberNepritele == 1)
@@ -75,6 +74,7 @@ while (end == false)
                     hra.Remiza();
                     break;
                 }
+            //spatna volba
             default:
                 hra.Chyba();
                 break;
@@ -83,25 +83,29 @@ while (end == false)
     zpet:
     if (hra.SkoreHrac > hra.SkoreNepritel)
     {
-        hra.FinalVyhra();
+        hra.FinalVyhra(); //vyhra hrace
     }
     else
     {
-        hra.FinalProhra();
+        hra.FinalProhra(); //prohra hrace
     }    
+    //rozhodnuti znova
     Console.WriteLine("Chceš znovu? / Again?");
     Console.WriteLine("A/N");
     ConsoleKeyInfo vyber = Console.ReadKey(true);
     switch (vyber.Key) 
     { 
+      //znova
       case ConsoleKey.A:
             end = false;
             Console.Clear();
             break;
+      //konec
       case ConsoleKey.N:
             end = true;
             Console.Clear();
             break;
+      //chyba
         default:
             hra.Chyba();
             goto zpet;            

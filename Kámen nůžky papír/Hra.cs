@@ -17,7 +17,7 @@ namespace Kámen_nůžky_papír
             SkoreHrac = 0;
             SkoreNepritel = 0;
         }
-        public void ZvyseniSkore(bool vyhraHrace)
+        public void ZvyseniSkore(bool vyhraHrace) //jednoduche zvysovani skore
         {
             if (vyhraHrace)
             {
@@ -28,7 +28,7 @@ namespace Kámen_nůžky_papír
                 SkoreNepritel++;
             }
         }
-        public void Start()
+        public void Start() //odpocet na startu
         {
             Console.WriteLine("Vítej ve hře kámen - nůžky - papír / Welcome at rock - paper - scissors");
             Console.WriteLine("Hra začíná za... / Game starts in...");
@@ -40,8 +40,12 @@ namespace Kámen_nůžky_papír
             Thread.Sleep(1000);
             Console.Clear();
         }        
-        public void Menu()
+        public void Menu() //menu voleb
         {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Hráč / Player: " + SkoreHrac);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Nepřítel / Opponent: " + SkoreNepritel);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("-------------");
             Console.WriteLine("1 - kámen / rock");
@@ -49,41 +53,41 @@ namespace Kámen_nůžky_papír
             Console.WriteLine("3 - papír / paper");
             Console.WriteLine("-------------");
         }
-        public void Remiza()
+        public void Remiza() //kdyz nastane remiza
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Remíza / Tie");
             Thread.Sleep(2000);
             Console.Clear();
         }
-        public void Vyhra()
+        public void Vyhra() //kdyz nastane vyhra
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Hráč vyhrál / Player won");
             Thread.Sleep(2000);
             Console.Clear();
         }
-        public void Prohra()
+        public void Prohra() //kdyz nastane prohra
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Nepřítel vyhrál / Opponent won");
             Thread.Sleep(2000);
             Console.Clear();
         }
-        public void Chyba()
+        public void Chyba() //kdyz spatne zada hodnotu
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Špatně zadaná hodnota - zadej vstup znovu / Incorrectly entered value - enter the input again ");
             Thread.Sleep(2000);
             Console.Clear();
         }
-        public void FinalVyhra()
+        public void FinalVyhra() //usetreni 2 radku v Program
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Hráč vyhrál / Player won");
             Console.ForegroundColor = ConsoleColor.White;
         }
-        public void FinalProhra() 
+        public void FinalProhra()  //usetreni 2 radku v Program
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Nepřítel vyhrál / Opponent won");
