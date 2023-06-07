@@ -104,6 +104,9 @@ while (end == false)//pouzito pro opakovani hry
       case ConsoleKey.N:
             end = true;
             Console.Clear();
+            Console.ForegroundColor= ConsoleColor.DarkRed;
+            Console.WriteLine("Konec programu");
+            Console.ForegroundColor= ConsoleColor.White;
             break;
       //chyba
         default:
